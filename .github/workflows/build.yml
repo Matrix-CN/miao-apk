@@ -43,6 +43,7 @@ jobs:
         uses: actions/setup-go@v6
         with:
           go-version: 'stable'
+          cache: true
 
       - name: Show go version
         run: |
