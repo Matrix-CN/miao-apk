@@ -44,7 +44,7 @@ jobs:
         with:
           go-version: 'stable'
           cache: true
-          cache-dependency-path: /home/runner/go/pkg/mod/go.mod
+          cache-dependency-path: /dev/null/go.mod
 
       - name: Show go version
         run: |
