@@ -43,8 +43,7 @@ jobs:
         uses: actions/setup-go@v6
         with:
           go-version: 'stable'
-          cache: true
-          cache-dependency-path: /home/runner/go/pkg/mod/go.mod
+          cache: false
 
       - name: Show go version
         run: |
