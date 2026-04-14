@@ -37,6 +37,10 @@ define Package/mihomo
   TITLE:=A rule-based tunnel in Go
   URL:=https://github.com/MetaCubeX/mihomo
   DEPENDS:=$(GO_ARCH_DEPENDS) +ca-bundle +kmod-tun +kmod-inet-diag +kmod-netlink-diag
+  PROVIDES:=mihomo
+  ALTERNATIVES:=\
+    100:/usr/bin/mihomo:/usr/libexec/mihomo
+  USERID:=mihomo=7890:mihomo=7890
 endef
 
 define Package/mihomo/description
