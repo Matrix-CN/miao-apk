@@ -62,6 +62,12 @@ endef
 define Package/mihomo/install
 	$(call GoPackage/Package/Install/Bin,$(1))
 
+	$(INSTALL_DIR) $(1)/usr/libexec/
+	mv $(1)/usr/bin/$(PKG_NAME) $(1)/usr/libexec/mihomo-core
+	rmdir $(1)/usr/bin 2>/dev/null || true
+
+	$(INSTALL_DIR) $(1)/usr/libexec/mihomo
+
 	$(INSTALL_DIR) $(1)/etc/mihomo/
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/docs/config.yaml $(1)/etc/mihomo/example.yaml
 
@@ -69,10 +75,8 @@ define Package/mihomo/install
 	$(INSTALL_CONF) $(CURDIR)/files/mihomo.config $(1)/etc/config/mihomo
 
 	$(INSTALL_DIR) $(1)/etc/init.d
-	$(INSTALL_BIN) $(CURDIR)/files/mihomo.init $(1)/etc/init.d/mihomo				
-	$(INSTALL_DIR) $(1)/usr/libexec/mihomo	
-	$(INSTALL_DIR) $(1)/usr/libexec/
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/$(PKG_NAME) $(1)/usr/libexec/mihomo-core
+	$(INSTALL_BIN) $(CURDIR)/files/mihomo.init $(1)/etc/init.d/mihomo
+
 endef
 
 $(eval $(call GoBinPackage,mihomo))
