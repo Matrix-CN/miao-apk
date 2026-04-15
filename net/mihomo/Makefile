@@ -72,7 +72,9 @@ define Package/mihomo/install
 	$(INSTALL_BIN) $(CURDIR)/files/mihomo.init $(1)/etc/init.d/mihomo
 
 	$(INSTALL_DIR) $(1)/usr/libexec/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/usr/bin/$(PKG_NAME) $(1)/usr/libexec/mihomo-core
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/$(PKG_NAME) $(1)/usr/libexec/mihomo-core
+
+    $(INSTALL_DIR) $(1)/usr/libexec/mihomo
 endef
 
 $(eval $(call GoBinPackage,mihomo))
