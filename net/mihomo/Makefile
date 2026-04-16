@@ -66,8 +66,6 @@ define Package/mihomo/install
 	mv $(1)/usr/bin/$(PKG_NAME) $(1)/usr/libexec/mihomo-core
 	rmdir $(1)/usr/bin 2>/dev/null || true
 
-	$(INSTALL_DIR) $(1)/usr/libexec/mihomo
-
 	$(INSTALL_DIR) $(1)/etc/mihomo/
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/docs/config.yaml $(1)/etc/mihomo/example.yaml
 
