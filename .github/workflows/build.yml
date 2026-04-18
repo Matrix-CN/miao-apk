@@ -37,7 +37,7 @@ jobs:
             echo "SKIP_BUILD=false" >> $GITHUB_ENV
           fi
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install deps
         if: env.SKIP_BUILD != 'true'
