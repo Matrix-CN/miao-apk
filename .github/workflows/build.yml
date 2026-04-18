@@ -135,7 +135,7 @@ jobs:
           overwrite: true
           body: |
             ${{ steps.read_release.outputs.RELEASE_BODY }}
-            
+
   cleanup:
     name: Keep only 2 latest releases
     needs: build
@@ -148,4 +148,4 @@ jobs:
         run: |
           gh release list --limit 100 | awk 'NR > 2 {print $3}' | xargs -I % gh release delete % --yes --cleanup-tag
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}            
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
