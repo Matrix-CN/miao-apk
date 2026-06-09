@@ -1,5 +1,5 @@
-#name: mihomo version check
-#on:
+name: mihomo version check
+on:
   workflow_dispatch:
   #schedule:
   #- cron: 0 16 * * 5
@@ -7,7 +7,7 @@
     branches:
       - main
 
-#jobs:
+jobs:
   check:
     name: Check new mihomo version
     runs-on: ubuntu-latest
